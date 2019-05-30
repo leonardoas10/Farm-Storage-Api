@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('test');
 });
 
-Route::post('/register', "RegisterController@register");
+Route::get('/curso', function () {
+    return view('curso');
+});
+
+Route::post('/register', "ProductsController@register");
 Route::put('/register{id}', "RegisterController@update");
 Route::delete('/register{id}', "RegisterController@destroy");

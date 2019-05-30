@@ -25,7 +25,7 @@ class ProductsController extends Controller {
          if ($request->input('product') !== null && $request->input('price') !== null) {
             $products = DB::table('products')->where('product', $product )->first();
             if($products === null) {
-            DB::table('products')->insert(
+            $id = DB::table('products')->insertGetId(
                 [
                 'product' => $product,
                 'price' => $price,
@@ -36,6 +36,7 @@ class ProductsController extends Controller {
                 "product" => $product,
                 "price" => $price,
                 "success" => true, 
+                "id" => $id,
             ];
      }
      else {
@@ -60,5 +61,12 @@ class ProductsController extends Controller {
                 ],
                 "success" => true, 
             ];
+    }
+
+    public function destroy(Request $request, $id) {
+        $products = DB::table('products')->where('id', $id)->delete();
+        return [
+            "success" => true,
+        ];
     }
 }

@@ -5,17 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
     </head>
     <body>
 
             @yield("Content")
+        <form name="form" method="post" action="ProductsController.php">
+        Producto: <input type="text" name="product"/>
+        <br />
+        Price: <input type="text" name="product"/>
+        
+        </form>
+
             <!--  Aqui es -->
-            <div class="content">
+            <!-- <div class="content">
                 <div class="title m-b-md">
                 
                 </div>
@@ -38,6 +40,6 @@
                 <button  className='submit-buttom' type="button" onClick={this.fetchRegister}>Register</button>
             </div>
             </div>
-        </div>
+        </div> -->
     </body>
 </html>
