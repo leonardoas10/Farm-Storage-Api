@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use App\Http\Requests\StartProduct;
 
 class ProductsController extends Controller {
 
@@ -18,30 +19,29 @@ class ProductsController extends Controller {
             "success" => true,
         ];
     }
-    public function register(Request $request) {
+    public function register(StartProduct $request) {
 
         $product = $request->input('product');
         $price = $request->input('price');
-         if ($request->input('product') !== null && $request->input('price') !== null) {
-            $products = DB::table('products')->where('product', $product )->first();
+        $products = DB::table('products')->where('product', ucwords($product) )->first();
             if($products === null) {
             $id = DB::table('products')->insertGetId(
                 [
-                'product' => $product,
+                'product' => ucwords($product),
                 'price' => $price,
                 ]
             );
-            }
-             return [
-                "product" => $product,
-                "price" => $price,
+            return [
+                "product" => ucwords($product),
+                "price" => number_format((float)$price, 2,".",'' ),
                 "success" => true, 
                 "id" => $id,
             ];
-     }
-     else {
-         return response ( ["message" => "invalid credentials", "success" => false], 404);
-     }
+            }
+             
+            else {
+                return response ( ["message" => "invalid credentials", "success" => false], 404);
+            }
     }
 
     public function update(Request $request, $id) {
