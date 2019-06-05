@@ -33,8 +33,8 @@ class StartProduct extends FormRequest
     public function messages()
     {   
         return [
-        'product.required' => 'A title is required',
-        'price.required'  => 'A message is required',
+        'product.required' => 'A product is required',
+        'price.required'  => 'A price is required',
         ];
     }
 }

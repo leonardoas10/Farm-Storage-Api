@@ -9,18 +9,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Http\Requests\StartProduct;
 
+
 class ProductsController extends Controller {
 
     public function getAll(Request $request) {
         $products = DB::table('products')->orderBy('id')->get();
-
-        return [
-            "products" => $products,
-            "success" => true,
-        ];
+        if($request->ajax()) {
+            return [
+                "products" => $products,
+                "success" => true,
+            ];
+        }
+       else {
+           return view('curso', ["products"=> $products]);
+       }
     }
     public function register(StartProduct $request) {
-
         $product = $request->input('product');
         $price = $request->input('price');
         $products = DB::table('products')->where('product', ucwords($product) )->first();
@@ -31,16 +35,19 @@ class ProductsController extends Controller {
                 'price' => $price,
                 ]
             );
-            return [
-                "product" => ucwords($product),
-                "price" => number_format((float)$price, 2,".",'' ),
-                "success" => true, 
-                "id" => $id,
-            ];
+            // return view('curso');
+            return redirect('/curso');
+                // "product" => ucwords($product),
+                // "price" => number_format((float)$price, 2,".",'' ),
+                // "success" => true, 
+                // "id" => $id,
+                
+        
             }
              
             else {
-                return response ( ["message" => "invalid credentials", "success" => false], 404);
+                return view('curso')->withErrors(["message" => "este producto existe", "success" => false]);
+                // response ( ["message" => "invalid credentials", "success" => false], 404);
             }
     }
 

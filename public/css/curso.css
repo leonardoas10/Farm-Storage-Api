@@ -1,0 +1,15 @@
+.form {
+    width: 400px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 40%;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.hasError {
+    border: 1px solid red;
+}
+

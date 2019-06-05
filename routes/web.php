@@ -15,10 +15,8 @@ Route::get('/', function () {
     return view('test');
 });
 
-Route::get('/curso', function () {
-    return view('curso');
-});
+Route::get('/curso', "ProductsController@getAll");
 
 Route::post('/register', "ProductsController@register");
-Route::put('/register{id}', "RegisterController@update");
-Route::delete('/register{id}', "RegisterController@destroy");
+Route::put('/curso/{id}', "ProductsController@update");
+Route::delete('/curso/{id}', "ProductsController@destroy");
