@@ -41,13 +41,14 @@ class ProductsController extends Controller {
                 // "price" => number_format((float)$price, 2,".",'' ),
                 // "success" => true, 
                 // "id" => $id,
-                
+                // donde coloco esto?
         
             }
              
             else {
                 return view('curso')->withErrors(["message" => "este producto existe", "success" => false]);
                 // response ( ["message" => "invalid credentials", "success" => false], 404);
+                // Es un catch?
             }
     }
 

@@ -7,9 +7,27 @@
     margin-left: 40%;
     border: 1px solid green;
     border-radius: 5px;
+    background-image: linear-gradient(to right, RGB(15, 253, 2), RGB(255, 255, 255));
 }
 
 .hasError {
     border: 1px solid red;
 }
 
+.input {
+    width: 150px;
+    margin-left: 120px;
+}
+
+.send {
+    margin-bottom: 20px;
+    width: 40px;
+    margin-left: 175px;
+}
+
+/* TABLE */
+
+.bording-table a {
+    text-decoration: none;
+    color: black;
+}

@@ -17,6 +17,6 @@ Route::get('/', function () {
 
 Route::get('/curso', "ProductsController@getAll");
 
-Route::post('/register', "ProductsController@register");
-Route::put('/curso/{id}', "ProductsController@update");
+Route::post('/curso', "ProductsController@register");
+Route::put('/curso/{id}', "ProductsController@update"); 
 Route::delete('/curso/{id}', "ProductsController@destroy");
