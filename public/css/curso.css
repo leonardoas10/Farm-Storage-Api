@@ -1,3 +1,14 @@
+.title-flex {
+    display: flex;
+    flex-flow: wrap !important; 
+    width: 100%;
+  }
+  
+.title-flex img {
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
 .form {
     width: 400px;
     display: flex;
@@ -21,8 +32,9 @@
 
 .send {
     margin-bottom: 20px;
-    width: 40px;
-    margin-left: 175px;
+    width: 80px;
+    margin-left: 160px;
+    font-size: 200px;
 }
 
 /* TABLE */

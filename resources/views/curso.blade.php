@@ -8,14 +8,18 @@
     </head>
     <body>
         <form class="form" name="form" method="post" action="/curso">
-            <h1> Farm Storage </h1>
+            <div class="title-flex">
+                <img alt="fruit" src="https://img.icons8.com/doodle/62/000000/watermelon.png">
+                <h1>Farm Storage</h1>
+                <img  alt="fruit"src="https://img.icons8.com/doodle/62/000000/pear.png">
+            </div>
             @csrf
-            Producto <input id="product" class="input type="text" name="product" class="@error('product') hasError @enderror"/>
+            Producto <input id="product" class="input" type="text" name="product" class="@error('product') hasError @enderror"/>
             @error('product')
                 <span style="color: red"> {{$message}}</span>
             @enderror
             <br />
-            Price <input id="price" class="input type="text" name="price" class="@error('price') hasError @enderror"/>
+            Price <input id="price" class="input" type="text" name="price" class="@error('price') hasError @enderror"/>
             @error('price')
                 <span style="color: red"> {{$message}}</span>
             @enderror
@@ -41,7 +45,7 @@
         </table>
         </form>
     </body>
-    <script src="edit.js"></script> 
+    <script src="{{asset('js/edit.js')}}"></script> 
 </html>
 
 
