@@ -1,3 +1,5 @@
+/* Only for Samsung TV */
+
 .title-flex {
     display: flex;
     flex-flow: wrap !important; 
@@ -34,7 +36,7 @@
     margin-bottom: 20px;
     width: 80px;
     margin-left: 160px;
-    font-size: 200px;
+    font-size: 20px;
 }
 
 /* TABLE */
